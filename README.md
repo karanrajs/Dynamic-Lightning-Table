@@ -11,9 +11,9 @@ Dynamic lightning table components help you to easily the display records in the
 
 
 This component has three attributes
-1. Object - Specify the API name of the object from where you need to retrieve the records
-2. Fields - Specify the list of columns you wants to display in the table. You have to mention the API name of the object fields
-3. pageSize - Specify the number of records you wants to display in a page
+* Object - Specify the API name of the object from where you need to retrieve the records
+* Fields - Specify the list of columns you wants to display in the table. You have to mention the API name of the object fields
+* pageSize - Specify the number of records you wants to display in a page
 
 
 ![alt tag](https://raw.github.com/Karanraj/Dynamic-Lightning-Table/master/img/DataTable.png)
