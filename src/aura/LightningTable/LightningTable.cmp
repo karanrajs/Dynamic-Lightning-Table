@@ -1,0 +1,53 @@
+<aura:component controller="sObjectRecordController" implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <ltng:require styles="/resource/SLDS080/assets/styles/salesforce-lightning-design-system-vf.css" />
+    <aura:attribute name="object" type="String" default="Account"/>
+    <aura:attribute type="sObject[]" name="latestRecords" />
+    <aura:attribute name="fields" type="String[]" default="Id,Name" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:PageChange" action="{!c.pageChange}"/>
+    <aura:attribute name="page" type="integer" default="1"/>
+    <aura:attribute name="pages" type="integer" default="10"/>
+    <aura:attribute name="total" type="integer" default="200"/>
+    <aura:attribute name="pageSize" type="String" default="10" />
+
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <head>
+        </head>
+        <body>
+            <div class="slds">
+                <div class="slds-card__header slds-grid">
+                    <div class="slds-media slds-media--center slds-has-flexi-truncate">
+                        <div class="slds-media__figure">
+                        </div>
+                        <div class="slds-media__body">
+                            <h2 class="slds-text-heading--small slds-truncate">{!v.object} Records</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-card__body">
+                    <section class="slds-card__body">
+                        <div class="slds-scrollable--x">
+                            <table class="slds-table slds-table--bordered slds-max-medium-table--stacked" >
+                                <thead>
+                                    <tr class="slds-text-heading--label">
+                                        <aura:iteration items="{!v.fields}" var="field" >
+                                        	<th class="slds-is-sortable" scope="col">
+                                              <div class="slds-truncate" >{!field}</div>
+                                            </th>
+                                        </aura:iteration>
+                                        <th class="slds-cell-shrink"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="data">
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+                <center>
+                <c:Paginator page="{!v.page}" pages="{!v.pages}" total="{!v.total}"/>
+              </center>
+            </div>
+        </body>
+    </html>
+</aura:component>

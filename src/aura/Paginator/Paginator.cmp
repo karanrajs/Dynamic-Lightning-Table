@@ -1,0 +1,16 @@
+<aura:component >
+    <aura:attribute name="page" type="integer"/>
+    <aura:attribute name="pages" type="integer"/>
+    <aura:attribute name="total" type="integer"/>
+    <ltng:require styles="/resource/SLDS080/assets/styles/salesforce-lightning-design-system-vf.css" />
+    <div class="slds">
+
+      <div class="slds-form-element">
+       <button class="slds-button slds-button--brand" onclick="{!c.previousPage}" disabled="{!v.page &lt;= 1}">
+           Previous
+        </button>
+        &nbsp;{!v.total} records • page {!v.page} / {!v.pages} &nbsp;
+       <button class="slds-button slds-button--brand" onclick="{!c.nextPage}" disabled="{!v.page >= v.pages}"> Next</button>
+     </div>
+    </div>
+</aura:component>
